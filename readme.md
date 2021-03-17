@@ -4,8 +4,7 @@ Standard C++ Proposal
 
 ### What is in here
 
-[This](#) is a repository hosting a development of the standard (ISO) C++ proposal ID: PXXXX 
-
+[This](https://github.com/DBJDBJ/callable_constructors) is a repository hosting a development of the standard (ISO) C++ proposal ID: PXXXX 
 
 ### Contact
 
@@ -13,7 +12,7 @@ In case you hotly dislike this work, or if the situation is the opposite, or the
 
 (c) 2019 - 2021 by [dbj at dbj dot org](mailto:dbj@dbj.org)
 
-#### Content of this repository is licensed under the [License DBJ](./LICENSE.md)
+#### Content of this repository is licensed under the [License DBJ]([license.md](https://raw.githubusercontent.com/DBJDBJ/callable_constructors/master/license.md))
 
 
 
