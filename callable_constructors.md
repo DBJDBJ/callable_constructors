@@ -23,7 +23,7 @@
 
 ## 1. Abstract
 
-This paper describes very standard  C++ "callable constructors", by proposing a core language change that is fundamental but in the same time non breaking.
+This paper describes standard  C++ "callable constructors", by proposing a core language change that is fundamental but in the same time non breaking.
 
 ## 2. Motivation
 
@@ -31,9 +31,9 @@ This paper describes very standard  C++ "callable constructors", by proposing a 
 
 Then the constructor exits, the runtime returns the newly-created instance. So the reason the constructor doesn't return a value is because it's not called directly, it's called by the memory allocation and object initialization code. -->
 
-On a bit higher level, modern OO languages (GO, RUST, etc) have decided to avoid constructors, with good reasoning. Also, the factory functions vs constructors as a general idea seemed very plausible in many ways. In e.g. C, one can (and does) a lot of OO without constructors.
+On a bit higher level, modern OO languages (GO, RUST, etc) have decided to avoid constructors, with good reasoning behind. Also, the factory functions vs constructors as a general idea seem very plausible in many ways. Also, in C, one can (and does) a lot of OO without constructors.
 
-Standard C++ constructors only way to signal the outcome, is to throw an exception. Projects where exception are mandated to be non existent are using factory methods to create class instances. That has effectively created another C++ dialect and fragmented the community.
+Standard C++ constructors only way to signal the outcome, is to throw an exception. Projects where exceptions are mandated to be non existent are using factory methods to create class instances. That has effectively created another C++ dialect and fragmented the community.
 
 Last but not the least: Lambda is kind-of-a callable constructor. For an "invisible" class.
 
@@ -49,11 +49,9 @@ Last but not the least: Lambda is kind-of-a callable constructor. For an "invisi
 
 CC Class can have a mixture of callable and non-callable (aka "normal") constructors. 
 
-**Specimen CC Class:**
+**Specimen CC Class**
 
 ```cpp
-using std::string;
-using std::string_view;
 // CC Struct
 struct person 
 {
@@ -65,7 +63,7 @@ string data_ ;
 // this constructor is not callable
 person () noexcept : data_("") { }
 
-// callable constructor
+// this is callable constructor
 // constructor signature is same as ever
 person ( string_view new_name_) : data_ (new_name_) 
 {  
@@ -78,15 +76,14 @@ person ( string_view new_name_) : data_ (new_name_)
 }
 
 // if callable constructor is not called
-// outcome is exactly the same as for standard constructor
-// the instance of the class constructed
+// outcome is exactly the same as for standard 
+// constructor: the instance of the class constructed
 person ( string_view name, string_view surname ) noexcept : data_(name) 
 {
   if ( surname.size() > 0 ) {
-    data_.append("|"); data.append(surname);
-    return true ;
+    data_.append("|").append(surname);
   }
-    return false ;
+    return data_ ;
 }
 
 person ( bool flag ) noexcept : data_("") 
@@ -165,7 +162,7 @@ person peter ( "Peter", "Pan" );
 // 'auto' is right of the type name
 // this constructor is implemented
 // to return std::string, if called
-std::string full_name = person auto ( "Misteria", "" );  
+std::string full_name = person auto ( "Peter", "" );  
 
 // default ctor has no return statements
 // it is not callable
@@ -194,9 +191,6 @@ Callable constructors returning *this are effectively factory methods.
 // when called this constructor makes a person and returns 
 // reference to it
 person const & jim = person auto ( 42, "Jim" );
-
-// copy ctor can not be callable 
-person stable_jim( jim ) ;
 ```
 Of course we can design and use more elaborate types to have the full information from inside the callable constructor.
 
