@@ -12,7 +12,7 @@ In case you hotly dislike this work, or if the situation is the opposite, or the
 
 (c) 2019 - 2021 by [dbj at dbj dot org](mailto:dbj@dbj.org)
 
-#### Content of this repository is licensed under the [License DBJ]([license.md](https://raw.githubusercontent.com/DBJDBJ/callable_constructors/master/license.md))
+#### Content of this repository is licensed under the [License DBJ](https://raw.githubusercontent.com/DBJDBJ/callable_constructors/master/license.md)
 
 
 
