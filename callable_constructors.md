@@ -1,4 +1,4 @@
-<h1>Callable Constructors&trade</h1><!-- omit in toc -->
+<h1>Callable Constructors&trade;</h1><!-- omit in toc -->
  
 | &nbsp;           | &nbsp;                                                   |
 | ---------------- | -------------------------------------------------------- |
